@@ -57,10 +57,10 @@ const ProjectsPage: React.FC = () => {
 
       case 'year':
       case 'square':
-        console.log(filterParam);
+        // console.log(filterParam);
         const filteredArr = [...projects].sort((a, b) => b[filterParam] - a[filterParam]);
         setFilteredProjects(filteredArr);
-        console.log(filteredArr);
+        // console.log(filteredArr);
         break;
 
       default:
@@ -108,6 +108,7 @@ const ProjectsPage: React.FC = () => {
 
   return (
     <div className="projects-page" onWheel={handleScroll} onScroll={handleScroll} onMouseMove={handleMouseMove}>
+      {/* <h1>qwe</h1> */}
       <div className="projects-gallery">
         <ProjectList projects={filteredProjects} info={info} />
       </div>

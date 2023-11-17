@@ -42,7 +42,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, info }) => {
     <div style={{ transform: `rotateX(${info.rotateX}deg) rotateY(${info.rotateY}deg) rotateZ(${info.rotateZ}deg)` }} className="card-list">
       {
         projects.map((project, idx: number) => {
-          console.log('map: ', project);
+          // console.log('map: ', project);
 
           const angle = (idx / numberOfCards) * 2 * Math.PI;
           const x = radius * Math.cos(angle) - cardWidth / 2;
