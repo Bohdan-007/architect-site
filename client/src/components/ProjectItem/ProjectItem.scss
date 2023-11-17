@@ -1,0 +1,43 @@
+.card {
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  // transform: translate(0, -50%) !important;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 80px !important;
+  height: 50px !important;
+
+  background-color: #3498db;
+
+  border-radius: 3px;
+  // box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+  transform: rotateX(-90deg);
+  transition: .05s;
+
+  &:hover {
+    // background-color: #00548b;
+    cursor: pointer;
+  }
+
+  img {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 3px;
+  }
+
+  .test {
+    position: absolute;
+    left: -75%;
+    background-color: transparent !important;
+  }
+
+  p {
+    margin: 0;
+  }
+}

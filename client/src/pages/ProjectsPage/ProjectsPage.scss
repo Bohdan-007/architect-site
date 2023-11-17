@@ -1,0 +1,18 @@
+.projects-page {
+  position: relative;
+  min-height: 100vh !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .projects-gallery {
+    position: absolute;
+    top: 35%;
+    transform: translate(0, -35%);
+    // background-color: #ff0000;
+    perspective: 1800px !important;
+  }
+
+}
