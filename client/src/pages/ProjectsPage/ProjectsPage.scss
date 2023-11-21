@@ -1,6 +1,8 @@
 .projects-page {
+  overflow: hidden;
+  // background-color: rgb(172, 214, 255) !important;
   position: relative;
-  min-height: 100vh !important;
+  height: 90vh;
 
   display: flex;
   justify-content: center;
@@ -11,7 +13,6 @@
     position: absolute;
     top: 35%;
     transform: translate(0, -35%);
-    // background-color: #ff0000;
     perspective: 1800px !important;
   }
 
