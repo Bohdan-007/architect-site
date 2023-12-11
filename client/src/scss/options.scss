@@ -14,6 +14,7 @@ $secondaryColor: #666 !default;
 $highlightColor: #ccc !default;
 $activeColor: #2098D1 !default;
 $shadowColor: rgba(0, 0, 0, .6) !default;
+$mainFontColor: #000000;
 
 // Speech bubbles options
 $tipWidth: 10px !default; //the width of the speech bubble tip
@@ -41,3 +42,6 @@ $o: false !default;
 
 // Compile with or without classes
 $includeClasses: true !default;
+
+// Font
+$defaultLineHeight: 1.5;

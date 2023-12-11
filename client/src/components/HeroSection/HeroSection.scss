@@ -1,51 +1,19 @@
 @import "../../scss/options.scss";
-@import "../../scss/mixins.scss";
-@import "../../scss/hacks.scss";
 
 
-@mixin underline-from-center($activeColor) {
-  $duration: $mediumDuration;
+.hero {
+  margin-bottom: 50px;
 
-  @include hacks();
-  position: relative;
-  overflow: hidden;
-
-  &:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 51%;
-    right: 51%;
-    bottom: 0;
-    background: $activeColor;
-    height: 4px;
-    @include prefixed(transition-property, "left, right");
-    @include prefixed(transition-duration, $duration);
-    @include prefixed(transition-timing-function, ease-out);
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-
-    &:before {
-      left: 0;
-      right: 0;
-    }
-  }
-}
-
-
-.contact-page {
-
-  .contact-page__title {
-    margin: 40px 0px;
+  .hero__title {
+    margin: 20px 0px;
     color: transparent;
+    text-align: center;
     font-size: 8vw;
+    line-height: 1.5;
   }
 
-  .contact-page__image-wrapper {
-    .contact-page__image {
+  .hero__img-wrapper {
+    .hero__img {
       width: 100%;
     }
 
@@ -91,46 +59,54 @@
     }
   }
 
-  .contact-page__email {
-    display: block;
-    margin-bottom: 30px;
-    font-size: 3vw;
-    @include underline-from-center(#000);
+  .hero__desc {
+    margin: 40px 0px;
+    color: $mainFontColor;
+    font-size: 40px;
+    line-height: 1.2;
   }
 
 }
 
 // Media requests
 @media (max-width: 1400px) {
-  .contact-page__image {
+  .hero__img {
     height: 600px;
   }
 }
 
 @media (max-width: 1200px) {
-  .contact-page__image {
+  .hero__img {
     height: 500px;
   }
 }
 
 @media (max-width: 992px) {
-  .contact-page__image {
+  .hero__desc {
+    font-size: 35px !important;
+  }
+
+  .hero__img {
     height: 450px;
   }
 }
 
 @media (max-width: 768px) {
-  .contact-page__image {
+  .hero__desc {
+    font-size: 30px !important;
+  }
+
+  .hero__img {
     height: 350px;
   }
 }
 
 @media (max-width: 576px) {
-  .contact-page__image {
-    height: 300px;
+  .hero__desc {
+    font-size: 26px !important;
   }
 
-  .contact-page__email {
-    font-size: 5vw !important;
+  .hero__img {
+    height: 300px;
   }
 }

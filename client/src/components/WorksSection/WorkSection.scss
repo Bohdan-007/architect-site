@@ -1,0 +1,64 @@
+@import "../../scss/options.scss";
+
+
+.works-section {
+  overflow-x: hidden !important;
+  margin-bottom: 50px;
+
+  .works-section__subtitle {
+    margin: 0;
+    color: $mainFontColor;
+    font-size: 50px;
+    text-decoration: underline;
+    line-height: $defaultLineHeight;
+  }
+
+  .works-section__title {
+    margin: 20px 0px 50px 0px;
+    color: $mainFontColor;
+    font-size: 7vw;
+    line-height: $defaultLineHeight;
+  }
+
+  .works-section__desc {
+    color: transparent;
+    font-size: 22px;
+    line-height: $defaultLineHeight;
+  }
+
+  .works-section__link {
+    color: $mainFontColor;
+    text-decoration: underline;
+  }
+}
+
+// Media requests
+@media (max-width: 992px) {
+  .works-section__subtitle {
+    font-size: 40px !important;
+  }
+
+  .works-section__desc {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .works-section__title {
+    margin: 20px 0px 20px 0px !important;
+  }
+
+  .works-section__subtitle {
+    font-size: 30px !important;
+  }
+
+  .works-section__desc {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .works-section__subtitle {
+    font-size: 24px !important;
+  }
+}

@@ -7,11 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'animate.css';
 import './ContactPage.scss';
 
+
 const ContactPage: React.FC = () => {
   const [refTitle, inViewTitle] = useInView({ triggerOnce: true });
   const [refDesc, inViewDesc] = useInView({ triggerOnce: true });
   const [refEmail, inViewEmail] = useInView({ triggerOnce: true });
-
 
   return (
     <div className="contact-page">

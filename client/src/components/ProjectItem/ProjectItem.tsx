@@ -26,6 +26,9 @@ const ProjectItem: React.FC<ProjectProps> = ({ project, style, onHoverProject })
   };
 
 
+  console.log(`translateX(${transformStyle.x}px) translateY(${transformStyle.y}px) rotate(${transformStyle.rotation}deg) rotateX(-90deg) rotateY(180deg) scale(${transformStyle.scale})`);
+  
+
   return (
     <div
       style={{
@@ -37,7 +40,7 @@ const ProjectItem: React.FC<ProjectProps> = ({ project, style, onHoverProject })
     >
       <img src={project.photoUrl} />
 
-      <p className='fw-semibold test'>{ project.year}</p>
+      {/* <p className='fw-semibold test'>{ project.year}</p> */}
 
       {/* <p>{project.title}</p>
       <p>{project.year}</p> */}
