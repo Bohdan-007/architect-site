@@ -8,9 +8,10 @@ import './ProjectList.scss';
 interface ProjectListProps {
   projects: Project[];
   info: any;
+  onHoverProject: (photoUrl: string) => void;
 };
 
-const ProjectList: React.FC<ProjectListProps> = ({ projects, info }) => {
+const ProjectList: React.FC<ProjectListProps> = ({ projects, info, onHoverProject }) => {
   const [radius, setRadius] = useState(calculateRadius());
 
   function calculateRadius() {
@@ -31,6 +32,8 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, info }) => {
   }, []);
 
   const handleHoverProject = (photoUrl: string): void => {
+    // console.log(photoUrl);
+    onHoverProject(photoUrl);
   };
 
 

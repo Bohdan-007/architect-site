@@ -40,16 +40,18 @@
   left: 0;
   bottom: 15%;
 
-  margin: 0px 0px 0px 20px;
+  // margin: 0px 0px 0px 20px;
+  margin: 0px 0px 0px 0px;
   padding: 0;
   list-style-type: none;
-}
 
-.filter__item {
-  @include underline-from-left(#000);
-  position: relative;
-}
+  .filter__item {
+    @include underline-from-left(#000);
+    position: relative;
+  }
 
-.filter__item.active {
-  border-bottom: 2.3px solid #000;
+  .filter__item.active {
+    border-bottom: 2.3px solid #000;
+  }
+
 }

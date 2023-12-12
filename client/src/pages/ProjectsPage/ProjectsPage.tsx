@@ -5,14 +5,11 @@ import { Project } from "../../models/project";
 import ProjectList from "../../components/ProjectList/ProjectList";
 import ProjectFilter from "../../components/ProjectFilter/ProjectFilter";
 
+import 'bootstrap/scss/bootstrap.scss';
 import './ProjectsPage.scss';
 
 const projects: Project[] = [
   { id: 1, title: "test flat", year: 2012, square: 85, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-eye-opening-iconic-buildings-of-modern-architecture.jpg" },
-
-
-
-  
   { id: 10, title: "test office", year: 2023, square: 127, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-2-1536x1025.jpg" },
   { id: 9, title: "test factory", year: 2021, square: 720, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1536x1025.webp" },
   { id: 4, title: "test factory", year: 2017, square: 457, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.jpg" },
@@ -100,6 +97,7 @@ const ProjectsPage: React.FC = () => {
   // const projects: Project[] = data ?? [];
   // const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
+  const [projectPhotoUrl, setProjectPhotoUrl] = useState<string>('');
 
   const [info, setInfo] = useState<any>({
     rotateX: 60,
@@ -172,10 +170,22 @@ const ProjectsPage: React.FC = () => {
 
   return (
     <div className="projects-page" onWheel={handleScroll} onScroll={handleScroll} onMouseMove={handleMouseMove}>
-      {/* <h1>qwe</h1> */}
-      <div className="projects-gallery">
-        <ProjectList projects={filteredProjects} info={info} />
+      <div className="projects-page__gallery">
+        <ProjectList projects={filteredProjects} info={info} onHoverProject={setProjectPhotoUrl} />
       </div>
+
+      <div className="projects-page__project-photo">
+        {
+          projectPhotoUrl &&
+          <img
+            // src="https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-7-1536x994.jpg"
+            src={projectPhotoUrl}
+            alt="photo"
+            className="rounded-1"
+          />
+        }
+      </div>
+
       <ProjectFilter onFilterProjects={handleFilterProjects} />
     </div>
   );

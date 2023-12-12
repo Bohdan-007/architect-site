@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Project } from '../../models/project';
 
 import './ProjectItem.scss';
+import { NavLink } from 'react-router-dom';
 
 
 interface ProjectProps {
@@ -17,7 +18,8 @@ const ProjectItem: React.FC<ProjectProps> = ({ project, style, onHoverProject })
 
   const handleMouseEnter = (): void => {
     setTransformStyle({ ...transformStyle, scale: 1.2 });
-    // onHoverProject(photoUrl);
+
+    onHoverProject(project.photoUrl);
   };
 
   const handleMouseLeave = (): void => {
@@ -26,11 +28,14 @@ const ProjectItem: React.FC<ProjectProps> = ({ project, style, onHoverProject })
   };
 
 
-  console.log(`translateX(${transformStyle.x}px) translateY(${transformStyle.y}px) rotate(${transformStyle.rotation}deg) rotateX(-90deg) rotateY(180deg) scale(${transformStyle.scale})`);
-  
+  // console.log(`translateX(${transformStyle.x}px) translateY(${transformStyle.y}px) rotate(${transformStyle.rotation}deg) rotateX(-90deg) rotateY(180deg) scale(${transformStyle.scale})`);
+
 
   return (
-    <div
+    // <NavLink to={`/project/${project.id}`}>
+
+    <NavLink
+      to={`/project/${project.id}`}
       style={{
         transform: `translateX(${transformStyle.x}px) translateY(${transformStyle.y}px) rotate(${transformStyle.rotation}deg) rotateX(-90deg) rotateY(180deg) scale(${transformStyle.scale})`
       }}
@@ -44,7 +49,7 @@ const ProjectItem: React.FC<ProjectProps> = ({ project, style, onHoverProject })
 
       {/* <p>{project.title}</p>
       <p>{project.year}</p> */}
-    </div>
+    </NavLink>
   );
 };
 
