@@ -3,6 +3,7 @@ import { useGetProjectsQuery } from "../../redux/projectsApi";
 import { Project } from "../../models/project";
 
 import ProjectList from "../../components/ProjectList/ProjectList";
+import MobileProjectList from "../../components/MobileProjectList/MobileProjectList";
 import ProjectFilter from "../../components/ProjectFilter/ProjectFilter";
 
 import 'bootstrap/scss/bootstrap.scss';
@@ -100,12 +101,29 @@ const ProjectsPage: React.FC = () => {
   const [projectPhotoUrl, setProjectPhotoUrl] = useState<string>('');
 
   const [info, setInfo] = useState<any>({
-    rotateX: 60,
+    // rotateX: 60,
+    rotateX: 75,
     rotateY: 0,
     rotateZ: 0,
     photoUrl: ''
   });
 
+  useEffect(() => {
+    const handleResize = (): void => {
+      // setInfo({
+      //   ...info,
+      //   rotateX:
+      // });
+      console.log('qwe');
+    };
+
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   // useEffect(() => {
   //   isSuccess && setFilteredProjects(projects);
@@ -137,7 +155,7 @@ const ProjectsPage: React.FC = () => {
 
     setInfo({
       ...info,
-      rotateX: 60 + angle,
+      rotateX: 75 + angle,
       rotateY: (clientX - window.innerWidth / 2) * 0.007,
     });
   };
@@ -169,16 +187,19 @@ const ProjectsPage: React.FC = () => {
   // );
 
   return (
-    <div className="projects-page" onWheel={handleScroll} onScroll={handleScroll} onMouseMove={handleMouseMove}>
+    // <div className="projects-page" onWheel={handleScroll} onScroll={handleScroll} onMouseMove={handleMouseMove}>
+    <div className="projects-page" onWheel={handleScroll} onScroll={handleScroll}>
       <div className="projects-page__gallery">
         <ProjectList projects={filteredProjects} info={info} onHoverProject={setProjectPhotoUrl} />
+      </div>
+      <div className="projects-page__mobile-gallery">
+        <MobileProjectList projects={filteredProjects} info={info} onHoverProject={setProjectPhotoUrl} />
       </div>
 
       <div className="projects-page__project-photo">
         {
           projectPhotoUrl &&
           <img
-            // src="https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-7-1536x994.jpg"
             src={projectPhotoUrl}
             alt="photo"
             className="rounded-1"
@@ -186,7 +207,9 @@ const ProjectsPage: React.FC = () => {
         }
       </div>
 
-      <ProjectFilter onFilterProjects={handleFilterProjects} />
+      <div className="projects-page__filter">
+        <ProjectFilter onFilterProjects={handleFilterProjects} />
+      </div>
     </div>
   );
 };
