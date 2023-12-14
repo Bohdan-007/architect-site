@@ -15,6 +15,11 @@ export const projectsApi = createApi({
       providesTags: ['Projects'],
     }),
 
+    getProject: builder.query<Project, any>({
+      query: (id: any) => `/${id}`,
+      providesTags: ['Projects'],
+    }),
+
     // addCartBook: builder.mutation<CartBook, CartBook>({
     //   query: (book) => ({
     //     url: '/cartbooks',
@@ -47,4 +52,5 @@ export const projectsApi = createApi({
 
 export const {
   useGetProjectsQuery,
+  useGetProjectQuery,
 } = projectsApi;

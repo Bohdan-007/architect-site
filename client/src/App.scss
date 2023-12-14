@@ -1,13 +1,17 @@
 .app {
-  min-height: 100vh;
+  // overflow: hidden !important;
+  // min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   // background-color: rgb(255, 198, 198);
+
 
   .main {
     flex: 1 1 auto;
 
     display: flex;
     flex-direction: column;
+
   }
 }

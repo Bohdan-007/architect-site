@@ -1,6 +1,6 @@
 .projects-page {
   // background-color: rgb(172, 214, 255) !important;
-  overflow: hidden;
+  overflow: hidden !important;
   position: relative;
 
   flex: 1 1 auto;
@@ -18,11 +18,11 @@
 
   .projects-page__mobile-gallery {
     display: none;
-    position: absolute;
-    top: 60%;
-    right: -25%;
-    perspective: 1800px !important;
-    z-index: 100;
+    // position: absolute;
+    // top: 60%;
+    // right: -25%;
+    // perspective: 1800px !important;
+    // z-index: 100;
   }
 
   .projects-page__project-photo {

@@ -32,7 +32,6 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, info, onHoverProjec
   }, []);
 
   const handleHoverProject = (photoUrl: string): void => {
-    // console.log(photoUrl);
     onHoverProject(photoUrl);
   };
 
@@ -41,19 +40,17 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, info, onHoverProjec
   const cardHeight: number = 50;
   const numberOfCards: number = projects.length;
 
+  
   return (
     <div style={{ transform: `rotateX(${info.rotateX}deg) rotateY(${info.rotateY}deg) rotateZ(${info.rotateZ}deg)` }} className="card-list">
       {
         projects.map((project, idx: number) => {
-          // console.log('map: ', project);
-
           const angle = (idx / numberOfCards) * 2 * Math.PI;
           const x = radius * Math.cos(angle) - cardWidth / 2;
           const y = radius * Math.sin(angle) - cardHeight / 2;
           const rotation = angle * (180 / Math.PI);
           const style = { x, y, rotation };
 
-          // return <ProjectItem key={project.id} project={project} style={style} onHoverProject={handleHoverProject} />;
           return (
             <>
               <ProjectItem key={project.id} project={project} style={style} onHoverProject={handleHoverProject} />

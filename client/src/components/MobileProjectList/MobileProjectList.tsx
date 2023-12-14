@@ -35,7 +35,7 @@ const MobileProjectList: React.FC<MobileProjectList> = ({ projects, info, onHove
 
           return (
             <>
-              <ProjectItem key={project.id} project={project} style={style} onHoverProject={handleHoverProject} />
+              {/* <ProjectItem key={project.id} project={project} style={style} onHoverProject={handleHoverProject} /> */}
             </>
           )
         })

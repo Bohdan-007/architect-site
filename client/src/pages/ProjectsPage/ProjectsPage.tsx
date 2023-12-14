@@ -5,142 +5,51 @@ import { Project } from "../../models/project";
 import ProjectList from "../../components/ProjectList/ProjectList";
 import MobileProjectList from "../../components/MobileProjectList/MobileProjectList";
 import ProjectFilter from "../../components/ProjectFilter/ProjectFilter";
+// import TestMobileProjectList from "../../components/TestMobileProjectList/TestMobileProjectList";
 
 import 'bootstrap/scss/bootstrap.scss';
 import './ProjectsPage.scss';
 
-const projects: Project[] = [
-  { id: 1, title: "test flat", year: 2012, square: 85, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-eye-opening-iconic-buildings-of-modern-architecture.jpg" },
-  { id: 10, title: "test office", year: 2023, square: 127, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-2-1536x1025.jpg" },
-  { id: 9, title: "test factory", year: 2021, square: 720, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1536x1025.webp" },
-  { id: 4, title: "test factory", year: 2017, square: 457, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.jpg" },
-  { id: 5, title: "test office", year: 2018, square: 327, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-3-1536x1024.jpg" },
-  { id: 2, title: "test flat", year: 2015, square: 40, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-4-1536x661.jpg" },
-  { id: 8, title: "test house", year: 2020, square: 148, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-5-1536x1020.jpg" },
-  { id: 6, title: "test flat", year: 2017, square: 62, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.webp" },
-  { id: 3, title: "test house", year: 2015, square: 97, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-6.jpg" },
-  { id: 7, title: "test flat", year: 2018, square: 56, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-7-1536x994.jpg" },
-  { id: 1, title: "test flat", year: 2012, square: 85, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-eye-opening-iconic-buildings-of-modern-architecture.jpg" },
-  { id: 10, title: "test office", year: 2023, square: 127, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-2-1536x1025.jpg" },
-  { id: 9, title: "test factory", year: 2021, square: 720, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1536x1025.webp" },
-  { id: 4, title: "test factory", year: 2017, square: 457, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.jpg" },
-  { id: 5, title: "test office", year: 2018, square: 327, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-3-1536x1024.jpg" },
-  { id: 2, title: "test flat", year: 2015, square: 40, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-4-1536x661.jpg" },
-  { id: 8, title: "test house", year: 2020, square: 148, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-5-1536x1020.jpg" },
-  { id: 6, title: "test flat", year: 2017, square: 62, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.webp" },
-  { id: 3, title: "test house", year: 2015, square: 97, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-6.jpg" },
-  { id: 7, title: "test flat", year: 2018, square: 56, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-7-1536x994.jpg" },
-  { id: 1, title: "test flat", year: 2012, square: 85, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-eye-opening-iconic-buildings-of-modern-architecture.jpg" },
-  { id: 10, title: "test office", year: 2023, square: 127, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-2-1536x1025.jpg" },
-  { id: 9, title: "test factory", year: 2021, square: 720, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1536x1025.webp" },
-  { id: 4, title: "test factory", year: 2017, square: 457, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.jpg" },
-  { id: 5, title: "test office", year: 2018, square: 327, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-3-1536x1024.jpg" },
-  { id: 2, title: "test flat", year: 2015, square: 40, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-4-1536x661.jpg" },
-  { id: 8, title: "test house", year: 2020, square: 148, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-5-1536x1020.jpg" },
-  { id: 6, title: "test flat", year: 2017, square: 62, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.webp" },
-  { id: 3, title: "test house", year: 2015, square: 97, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-6.jpg" },
-  { id: 7, title: "test flat", year: 2018, square: 56, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-7-1536x994.jpg" },
-  { id: 1, title: "test flat", year: 2012, square: 85, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-eye-opening-iconic-buildings-of-modern-architecture.jpg" },
-  { id: 10, title: "test office", year: 2023, square: 127, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-2-1536x1025.jpg" },
-  { id: 9, title: "test factory", year: 2021, square: 720, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1536x1025.webp" },
-  { id: 4, title: "test factory", year: 2017, square: 457, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.jpg" },
-  { id: 5, title: "test office", year: 2018, square: 327, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-3-1536x1024.jpg" },
-  { id: 2, title: "test flat", year: 2015, square: 40, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-4-1536x661.jpg" },
-  { id: 8, title: "test house", year: 2020, square: 148, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-5-1536x1020.jpg" },
-  { id: 6, title: "test flat", year: 2017, square: 62, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.webp" },
-  { id: 3, title: "test house", year: 2015, square: 97, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-6.jpg" },
-  { id: 7, title: "test flat", year: 2018, square: 56, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-7-1536x994.jpg" },
-  { id: 1, title: "test flat", year: 2012, square: 85, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-eye-opening-iconic-buildings-of-modern-architecture.jpg" },
-  { id: 10, title: "test office", year: 2023, square: 127, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-2-1536x1025.jpg" },
-  { id: 9, title: "test factory", year: 2021, square: 720, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1536x1025.webp" },
-  { id: 4, title: "test factory", year: 2017, square: 457, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.jpg" },
-  { id: 5, title: "test office", year: 2018, square: 327, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-3-1536x1024.jpg" },
-  { id: 2, title: "test flat", year: 2015, square: 40, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-4-1536x661.jpg" },
-  { id: 8, title: "test house", year: 2020, square: 148, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-5-1536x1020.jpg" },
-  { id: 6, title: "test flat", year: 2017, square: 62, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.webp" },
-  { id: 3, title: "test house", year: 2015, square: 97, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-6.jpg" },
-  { id: 7, title: "test flat", year: 2018, square: 56, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-7-1536x994.jpg" },
-  { id: 1, title: "test flat", year: 2012, square: 85, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-eye-opening-iconic-buildings-of-modern-architecture.jpg" },
-  { id: 10, title: "test office", year: 2023, square: 127, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-2-1536x1025.jpg" },
-  { id: 9, title: "test factory", year: 2021, square: 720, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1536x1025.webp" },
-  { id: 4, title: "test factory", year: 2017, square: 457, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.jpg" },
-  { id: 5, title: "test office", year: 2018, square: 327, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-3-1536x1024.jpg" },
-  { id: 2, title: "test flat", year: 2015, square: 40, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-4-1536x661.jpg" },
-  { id: 8, title: "test house", year: 2020, square: 148, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-5-1536x1020.jpg" },
-  { id: 6, title: "test flat", year: 2017, square: 62, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.webp" },
-  { id: 3, title: "test house", year: 2015, square: 97, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-6.jpg" },
-  { id: 7, title: "test flat", year: 2018, square: 56, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-7-1536x994.jpg" },
-  { id: 1, title: "test flat", year: 2012, square: 85, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-eye-opening-iconic-buildings-of-modern-architecture.jpg" },
-  { id: 10, title: "test office", year: 2023, square: 127, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-2-1536x1025.jpg" },
-  { id: 9, title: "test factory", year: 2021, square: 720, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1536x1025.webp" },
-  { id: 4, title: "test factory", year: 2017, square: 457, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.jpg" },
-  { id: 5, title: "test office", year: 2018, square: 327, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-3-1536x1024.jpg" },
-  { id: 2, title: "test flat", year: 2015, square: 40, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-4-1536x661.jpg" },
-  { id: 8, title: "test house", year: 2020, square: 148, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-5-1536x1020.jpg" },
-  { id: 6, title: "test flat", year: 2017, square: 62, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.webp" },
-  { id: 3, title: "test house", year: 2015, square: 97, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-6.jpg" },
-  { id: 7, title: "test flat", year: 2018, square: 56, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-7-1536x994.jpg" },
-  { id: 1, title: "test flat", year: 2012, square: 85, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-eye-opening-iconic-buildings-of-modern-architecture.jpg" },
-  { id: 10, title: "test office", year: 2023, square: 127, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-2-1536x1025.jpg" },
-  { id: 9, title: "test factory", year: 2021, square: 720, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1536x1025.webp" },
-  { id: 4, title: "test factory", year: 2017, square: 457, category: "factory", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.jpg" },
-  { id: 5, title: "test office", year: 2018, square: 327, category: "office", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-3-1536x1024.jpg" },
-  { id: 2, title: "test flat", year: 2015, square: 40, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-4-1536x661.jpg" },
-  { id: 8, title: "test house", year: 2020, square: 148, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-5-1536x1020.jpg" },
-  { id: 6, title: "test flat", year: 2017, square: 62, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-1.webp" },
-  { id: 3, title: "test house", year: 2015, square: 97, category: "house", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-6.jpg" },
-  { id: 7, title: "test flat", year: 2018, square: 56, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-iconic-buildings-of-modern-architecture-7-1536x994.jpg" },
-];
-
 
 const ProjectsPage: React.FC = () => {
-  // const { data, error, isLoading, isSuccess } = useGetProjectsQuery('');
-  // const projects: Project[] = data ?? [];
-  // const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
+  const { data: projects, error, isLoading, isSuccess } = useGetProjectsQuery('');
+  const [filteredProjects, setFilteredProjects] = useState<Project[] | undefined>(projects);
   const [projectPhotoUrl, setProjectPhotoUrl] = useState<string>('');
 
   const [info, setInfo] = useState<any>({
-    // rotateX: 60,
-    rotateX: 75,
+    rotateX: 60,
     rotateY: 0,
     rotateZ: 0,
     photoUrl: ''
   });
 
   useEffect(() => {
-    const handleResize = (): void => {
-      // setInfo({
-      //   ...info,
-      //   rotateX:
-      // });
-      console.log('qwe');
-    };
+    isSuccess && setFilteredProjects(projects);
+  }, [isSuccess, projects]);
 
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  // useEffect(() => {
-  //   isSuccess && setFilteredProjects(projects);
-  // }, [isSuccess]);
-
-  const handleFilterProjects = (filterParam: string) => {
+  const handleFilterProjects = (filterParam: string): void => {
     switch (filterParam) {
       case 'all':
         setFilteredProjects(projects);
         break;
 
       case 'year':
-      case 'square':
-        // console.log(filterParam);
-        const filteredArr = [...projects].sort((a, b) => b[filterParam] - a[filterParam]);
-        setFilteredProjects(filteredArr);
+      case 'area':
+        const prevValues: any[] = [];
+
+        const filteredArr: Project[] | [] = isSuccess ? projects.map((project) => {
+          const updatedProject = { ...project, filterTitle: '' };
+          if (!prevValues.includes(project[filterParam])) {
+            prevValues.push(project[filterParam]);
+            updatedProject.filterTitle = String(project[filterParam]);
+          }
+          return updatedProject;
+        }).sort((a, b) => b[filterParam] - a[filterParam]) : [];
+
+        // console.log(prevValues);
         // console.log(filteredArr);
+
+        setFilteredProjects(filteredArr);
         break;
 
       default:
@@ -155,7 +64,7 @@ const ProjectsPage: React.FC = () => {
 
     setInfo({
       ...info,
-      rotateX: 75 + angle,
+      rotateX: 60 + angle,
       rotateY: (clientX - window.innerWidth / 2) * 0.007,
     });
   };
@@ -169,49 +78,43 @@ const ProjectsPage: React.FC = () => {
   };
 
 
-  // return (
-  //   <>
-  //     {error ? (
-  //       <p>error</p>
-  //     ) : isLoading ? (
-  //       <p> loading...</p>
-  //     ) : isSuccess && filteredProjects ? (
-  //       <div className="projects-page" onWheel={handleScroll} onMouseMove={handleMouseMove}>
-  //         <div className="projects-gallery">
-  //           <ProjectList projects={filteredProjects} info={info} />
-  //         </div>
-  //         <ProjectFilter onFilterProjects={handleFilterProjects} />
-  //       </div>
-  //     ) : null}
-  //   </>
-  // );
-
   return (
-    // <div className="projects-page" onWheel={handleScroll} onScroll={handleScroll} onMouseMove={handleMouseMove}>
-    <div className="projects-page" onWheel={handleScroll} onScroll={handleScroll}>
-      <div className="projects-page__gallery">
-        <ProjectList projects={filteredProjects} info={info} onHoverProject={setProjectPhotoUrl} />
-      </div>
-      <div className="projects-page__mobile-gallery">
-        <MobileProjectList projects={filteredProjects} info={info} onHoverProject={setProjectPhotoUrl} />
-      </div>
+    <>
+      {error ? (
+        <p>error</p>
+      ) : isLoading ? (
+        <div className="projects-page">
+          <div className="spinner-border text-primary" role="status"></div>
+        </div>
+      ) : isSuccess && filteredProjects ? (
+        <div className="projects-page" onWheel={handleScroll} onMouseMove={handleMouseMove}>
+          <div className="projects-page__gallery">
+            <ProjectList projects={filteredProjects} info={info} onHoverProject={setProjectPhotoUrl} />
+          </div>
 
-      <div className="projects-page__project-photo">
-        {
-          projectPhotoUrl &&
-          <img
-            src={projectPhotoUrl}
-            alt="photo"
-            className="rounded-1"
-          />
-        }
-      </div>
+          <div className="projects-page__mobile-gallery">
+            <p>mobile gallery...</p>
+            {/* <MobileProjectList projects={filteredProjects} info={info} onHoverProject={setProjectPhotoUrl} /> */}
+          </div>
+          {/* <TestMobileProjectList projects={filteredProjects} /> */}
 
-      <div className="projects-page__filter">
-        <ProjectFilter onFilterProjects={handleFilterProjects} />
-      </div>
-    </div>
+          <div className="projects-page__project-photo">
+            {projectPhotoUrl &&
+              <img
+                src={projectPhotoUrl}
+                alt="photo"
+                className="rounded-1"
+              />}
+          </div>
+
+          <div className="projects-page__filter">
+            <ProjectFilter onFilterProjects={handleFilterProjects} />
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 };
+
 
 export default ProjectsPage;

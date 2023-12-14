@@ -2,7 +2,6 @@
   position: absolute !important;
   top: 50%;
   left: 50%;
-  // transform: translate(0, -50%) !important;
 
   display: flex;
   flex-direction: column;
@@ -17,7 +16,7 @@
   border-radius: 3px;
   // box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 
-  transform: rotateX(-90deg);
+  // transform: rotateX(-90deg);
   transition: .05s;
 
   &:hover {
@@ -31,10 +30,45 @@
     border-radius: 3px;
   }
 
-  .test {
+  .filter-title {
+    transform-style: preserve-3d !important;
     position: absolute;
-    left: -75%;
-    background-color: transparent !important;
+    left: -110%;
+
+    // background-color: #3498db !important;
+  }
+
+  transform-style: preserve-3d;
+  .cube {
+    transform-style: preserve-3d;
+    position: absolute !important;
+    // position: relative;
+    // width: 50px;
+    // height: 50px;
+
+    animation: cube 5s infinite linear;
+
+    .side {
+      position: absolute !important;
+      top: 0;
+      left: 0;
+      width: inherit;
+      height: inherit;
+      background-color: #fff;
+      padding: 5px;
+    }
+
+    .front {
+      // transform: translateZ(25px) !important;
+      transform: translateZ(0.1px) !important;
+      // background-color: antiquewhite;
+    }
+
+    .back {
+      transform: rotateY(180deg) translateZ(0.1px) !important;
+      // background-color: aquamarine;
+      z-index: 1000 !important;
+    }
   }
 
   p {
