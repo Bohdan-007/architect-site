@@ -8,7 +8,7 @@ import './MobileProjectList.scss';
 interface MobileProjectListProps {
   projects: Project[],
   info: { rotateX: number, rotateY: number, rotateZ: number },
-  onHoverProject: (photoUrl: string) => void,
+  onHoverProject: (project: any) => void,
 };
 
 interface MobileProjectItemStyle {
@@ -25,8 +25,8 @@ const MobileProjectList: React.FC<MobileProjectListProps> = ({ projects, info: {
     return Math.min(window.innerWidth, window.innerHeight) * factor;
   };
 
-  const handleHoverProject = (photoUrl: string): void => {
-    onHoverProject(photoUrl);
+  const handleHoverProject = (project: any): void => {
+    onHoverProject(project);
   };
 
   const cardWidth: number = 80;

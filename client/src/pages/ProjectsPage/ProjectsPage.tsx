@@ -7,6 +7,7 @@ import ProjectFilter from "../../components/ProjectFilter/ProjectFilter";
 import MobileProjectList from "../../components/MobileProjectList/MobileProjectList";
 
 import 'bootstrap/scss/bootstrap.scss';
+import 'animate.css';
 import './ProjectsPage.scss';
 
 
@@ -20,7 +21,7 @@ interface Info {
 const ProjectsPage: React.FC = () => {
   const { data: projects, error, isLoading, isSuccess } = useGetProjectsQuery('');
   const [filteredProjects, setFilteredProjects] = useState<Project[] | undefined>(projects);
-  const [projectPhotoUrl, setProjectPhotoUrl] = useState<string>('');
+  const [hoveredProject, setHoveredProject] = useState<Project | null>();
   const [info, setInfo] = useState<Info>({
     rotateX: 60,
     rotateY: 0,
@@ -92,18 +93,26 @@ const ProjectsPage: React.FC = () => {
           : isSuccess && filteredProjects
             ? (<div className="projects-page" onWheel={handleScroll} onMouseMove={handleMouseMove}>
               <div className="projects-page__gallery">
-                <ProjectList projects={filteredProjects} info={info} onHoverProject={setProjectPhotoUrl} />
+                <ProjectList projects={filteredProjects} info={info} onHoverProject={setHoveredProject} />
               </div>
 
               <div className="projects-page__mobile-gallery">
                 {/* <p>mobile gallery...</p> */}
-                <MobileProjectList projects={filteredProjects} info={info} onHoverProject={setProjectPhotoUrl} />
+                <MobileProjectList projects={filteredProjects} info={info} onHoverProject={setHoveredProject} />
               </div>
 
-              <div className="projects-page__project-photo">
-                {projectPhotoUrl &&
-                  <img src={projectPhotoUrl} alt="photo" className="rounded-1" />}
-              </div>
+              {hoveredProject ?
+                <div className="projects-page__project-photo">
+                  <p className="m-0 fs-1 fw-semibold text-center">{hoveredProject.title}</p>
+                  <img src={hoveredProject.photoUrl} alt="photo" className="rounded-1 my-2" />
+                  <p className="m-0 fw-semibold text-center">{hoveredProject.category}</p>
+                </div>
+                :
+                <div className="projects-page__title">
+                  <div className="animate__animated animate__fadeInUp">
+                    <p className="m-0 fs-1 fw-semibold text-center">SOVA LAB</p>
+                  </div>
+                </div>}
 
               <div className="projects-page__filter">
                 <ProjectFilter onFilterProjects={handleFilterProjects} />

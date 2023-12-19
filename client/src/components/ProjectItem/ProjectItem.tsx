@@ -8,7 +8,7 @@ import './ProjectItem.scss';
 interface ProjectProps {
   project: Project,
   style: { x: number; y: number; rotation: number },
-  onHoverProject: (photoUrl: string) => void,
+  onHoverProject: (project: Project | null) => void,
 };
 
 const ProjectItem: React.FC<ProjectProps> = ({ project, style: { x, y, rotation }, onHoverProject }) => {
@@ -16,12 +16,12 @@ const ProjectItem: React.FC<ProjectProps> = ({ project, style: { x, y, rotation 
 
   const handleMouseEnter = (): void => {
     setScale(1.2);
-    onHoverProject(project.photoUrl);
+    onHoverProject(project);
   };
 
   const handleMouseLeave = (): void => {
     setScale(1);
-    onHoverProject('');
+    onHoverProject(null);
   };
 
 

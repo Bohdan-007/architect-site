@@ -6,15 +6,23 @@
     list-style-type: none;
 
     li {
+      border-bottom: 2px solid #000;
       transition: .2s;
+
+      &:nth-child(1) {
+        border-bottom: none;
+
+        div {
+          border-bottom: 2px solid #000;
+        }
+      }
 
       &:hover {
         transform: scale(1.05);
       }
 
-      .info {
-        text-align: center;
-        border-bottom: 2px solid #000;
+      .jp-title {
+        margin: 0 auto !important;
       }
     }
   }
@@ -28,6 +36,11 @@
       img {
         width: 100%;
         height: 100%;
+        transition: .2s;
+
+        &:hover {
+          transform: scale(1.03);
+        }
       }
     }
   }

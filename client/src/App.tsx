@@ -22,6 +22,9 @@ const App: React.FC = () => {
     setIsShowFooter(location.pathname !== '/');
   }, [location]);
 
+  // to prohibit the actions of the right mouse button on the site.
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  
   
   return (
     <div className="app">
