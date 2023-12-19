@@ -14,6 +14,7 @@ import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 
 import './App.scss';
+import './scss/common.scss';
 
 const App: React.FC = () => {
   const location = useLocation();

@@ -1,136 +1,173 @@
-@import "../../scss/options.scss";
-@import "../../scss/mixins.scss";
-@import "../../scss/hacks.scss";
+// @import "../../scss/options.scss";
+// @import "../../scss/mixins.scss";
+// @import "../../scss/hacks.scss";
 
 
-@mixin underline-from-center($activeColor) {
-  $duration: $mediumDuration;
+// @mixin underline-from-center($activeColor) {
+//   $duration: $mediumDuration;
 
-  @include hacks();
-  position: relative;
-  overflow: hidden;
+//   @include hacks();
+//   position: relative;
+//   overflow: hidden;
 
-  &:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 51%;
-    right: 51%;
-    bottom: 0;
-    background: $activeColor;
-    height: 4px;
-    @include prefixed(transition-property, "left, right");
-    @include prefixed(transition-duration, $duration);
-    @include prefixed(transition-timing-function, ease-out);
-  }
+//   &:before {
+//     content: "";
+//     position: absolute;
+//     z-index: -1;
+//     left: 51%;
+//     right: 51%;
+//     bottom: 0;
+//     background: $activeColor;
+//     height: 4px;
+//     @include prefixed(transition-property, "left, right");
+//     @include prefixed(transition-duration, $duration);
+//     @include prefixed(transition-timing-function, ease-out);
+//   }
 
-  &:hover,
-  &:focus,
-  &:active {
+//   &:hover,
+//   &:focus,
+//   &:active {
 
-    &:before {
-      left: 0;
-      right: 0;
+//     &:before {
+//       left: 0;
+//       right: 0;
+//     }
+//   }
+// }
+
+
+// .contact-page {
+
+//   .contact-page__title {
+//     margin: 40px 0px;
+//     color: transparent;
+//     font-size: 8vw;
+//   }
+
+//   .contact-page__image-wrapper {
+//     .contact-page__image {
+//       width: 100%;
+//     }
+
+//     .scale-in-ver-top {
+//       -webkit-animation: scale-in-ver-top .5s cubic-bezier(.25, .46, .45, .94) both;
+//       animation: scale-in-ver-top .5s cubic-bezier(.25, .46, .45, .94) both;
+
+//       @-webkit-keyframes scale-in-ver-top {
+//         0% {
+//           -webkit-transform: scaleY(0);
+//           transform: scaleY(0);
+//           -webkit-transform-origin: 100% 0;
+//           transform-origin: 100% 0;
+//           opacity: 1
+//         }
+
+//         100% {
+//           -webkit-transform: scaleY(1);
+//           transform: scaleY(1);
+//           -webkit-transform-origin: 100% 0;
+//           transform-origin: 100% 0;
+//           opacity: 1
+//         }
+//       }
+
+//       @keyframes scale-in-ver-top {
+//         0% {
+//           -webkit-transform: scaleY(0);
+//           transform: scaleY(0);
+//           -webkit-transform-origin: 100% 0;
+//           transform-origin: 100% 0;
+//           opacity: 1
+//         }
+
+//         100% {
+//           -webkit-transform: scaleY(1);
+//           transform: scaleY(1);
+//           -webkit-transform-origin: 100% 0;
+//           transform-origin: 100% 0;
+//           opacity: 1
+//         }
+//       }
+//     }
+//   }
+
+//   .contact-page__email {
+//     display: block;
+//     margin-bottom: 30px;
+//     font-size: 3vw;
+//     @include underline-from-center(#000);
+//   }
+
+// }
+
+// // Media requests
+// @media (max-width: 1400px) {
+//   .contact-page__image {
+//     height: 600px;
+//   }
+// }
+
+// @media (max-width: 1200px) {
+//   .contact-page__image {
+//     height: 500px;
+//   }
+// }
+
+// @media (max-width: 992px) {
+//   .contact-page__image {
+//     height: 450px;
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .contact-page__image {
+//     height: 350px;
+//   }
+// }
+
+// @media (max-width: 576px) {
+//   .contact-page__image {
+//     height: 300px;
+//   }
+
+//   .contact-page__email {
+//     font-size: 5vw !important;
+//   }
+// }
+
+
+// =======================================
+.employee-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  &>li {
+    ul {
+      a {
+        color: transparent;
+      }
+
+      color: transparent;
     }
   }
-}
 
+  .employee-list__img-wrapper {
+    // background-color: aqua;
+    width: 125px;
+    height: 125px;
 
-.contact-page {
-
-  .contact-page__title {
-    margin: 40px 0px;
-    color: transparent;
-    font-size: 8vw;
-  }
-
-  .contact-page__image-wrapper {
-    .contact-page__image {
+    img {
       width: 100%;
-    }
-
-    .scale-in-ver-top {
-      -webkit-animation: scale-in-ver-top .5s cubic-bezier(.25, .46, .45, .94) both;
-      animation: scale-in-ver-top .5s cubic-bezier(.25, .46, .45, .94) both;
-
-      @-webkit-keyframes scale-in-ver-top {
-        0% {
-          -webkit-transform: scaleY(0);
-          transform: scaleY(0);
-          -webkit-transform-origin: 100% 0;
-          transform-origin: 100% 0;
-          opacity: 1
-        }
-
-        100% {
-          -webkit-transform: scaleY(1);
-          transform: scaleY(1);
-          -webkit-transform-origin: 100% 0;
-          transform-origin: 100% 0;
-          opacity: 1
-        }
-      }
-
-      @keyframes scale-in-ver-top {
-        0% {
-          -webkit-transform: scaleY(0);
-          transform: scaleY(0);
-          -webkit-transform-origin: 100% 0;
-          transform-origin: 100% 0;
-          opacity: 1
-        }
-
-        100% {
-          -webkit-transform: scaleY(1);
-          transform: scaleY(1);
-          -webkit-transform-origin: 100% 0;
-          transform-origin: 100% 0;
-          opacity: 1
-        }
-      }
+      height: 100%;
     }
   }
-
-  .contact-page__email {
-    display: block;
-    margin-bottom: 30px;
-    font-size: 3vw;
-    @include underline-from-center(#000);
-  }
-
 }
 
-// Media requests
-@media (max-width: 1400px) {
-  .contact-page__image {
-    height: 600px;
-  }
-}
+.employee-contact {
+  color: #000 !important;
 
-@media (max-width: 1200px) {
-  .contact-page__image {
-    height: 500px;
-  }
-}
-
-@media (max-width: 992px) {
-  .contact-page__image {
-    height: 450px;
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-page__image {
-    height: 350px;
-  }
-}
-
-@media (max-width: 576px) {
-  .contact-page__image {
-    height: 300px;
-  }
-
-  .contact-page__email {
-    font-size: 5vw !important;
+  a {
+    color: #000 !important;
   }
 }
