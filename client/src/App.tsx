@@ -5,6 +5,7 @@ import { projectsApi } from './redux/projectsApi';
 
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage';
 import OneProjectPage from './pages/OneProjectPage/OneProjectPage';
+import ServicesPage from './pages/ServicesPage/ServicesPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import ContactPage from './pages/ContactPage/ContactPage';
 import NotFoundPage from './pages/NotFountPage/NotFoundPage';
@@ -37,6 +38,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path='/' element={<ProjectsPage />} />
             <Route path='/project/:id' element={<OneProjectPage />} />
+            <Route path='/services' element={<ServicesPage />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/contact' element={<ContactPage />} />
             <Route path='*' element={<NotFoundPage />} />

@@ -129,10 +129,85 @@
 
 // export default Nav;
 
-// ==============================
+// =============== WITH DROPDOWN ===============
+// import React from 'react';
+// import { NavLink } from 'react-router-dom';
+// import logo from '../../images/logo.png';
+
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/js/bootstrap.min.js';
+// import './Nav.scss';
+
+
+// const Nav: React.FC = () => {
+
+//   const setActiveSubLink = ({ isActive }: { isActive: boolean }): string => (isActive
+//     ? 'dropdown-item d-inline p-2 fs-5 text-white active-sub-link'
+//     : 'dropdown-item d-inline p-2 fs-5 text-white');
+
+
+//   return (
+//     <nav className="navbar navbar-expand-lg bg-white shadow-sm position-sticky top-0 z-3 h-100">
+//       <div className="container">
+
+//         <NavLink to="/" className="navbar-brand d-flex justify-content-between align-items-center fs-2 border-0">
+//           <img src={logo} alt="Logo" width="70" height="40" className="d-inline-block align-text-top" />
+//         </NavLink>
+
+//         <button className="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+//           <span className="navbar-toggler-icon"></span>
+//         </button>
+
+//         <div className="collapse navbar-collapse" id="navbarNavDropdown">
+//           <div className='navbar-wrapper'>
+//             <ul className="navbar-nav">
+//               <li className="nav-item mx-2">
+//                 <NavLink to="/" className="nav-link text-black fs-5">Projects</NavLink>
+//               </li>
+//               <li className="nav-item mx-2 dropdown">
+//                 <a className="nav-link dropdown-toggle text-black fs-5" role="button" data-bs-toggle="dropdown" aria-expanded="false">Info</a>
+//                 <ul className="dropdown-menu px-2 bg-black border-0">
+//                   <li className='mb-2'><NavLink to="/about" className={setActiveSubLink}>About</NavLink></li>
+//                   <li className='mb-2'><NavLink to="/awards" className={setActiveSubLink}>Awards</NavLink></li>
+//                   <li className='mb-2'><NavLink to="/*" className={setActiveSubLink}>Something else</NavLink></li>
+//                 </ul>
+//               </li>
+//               <li className="nav-item mx-2">
+//                 <NavLink to="/contact" className="nav-link text-black fs-5">Contact</NavLink>
+//               </li>
+//             </ul>
+
+//             {/* mobile */}
+//             <ul className='navbar-nav d-none mobile-soc-links'>
+//               <li className='nav-item'>
+//                 <a href="https://www.instagram.com" target='_blanc' className='nav-link p-2 text-black fs-5'>Instagram</a>
+//               </li>
+//               <li className='nav-item'>
+//                 <a href="https://www.facebook.com" target='_blanc' className='nav-link p-2 text-black fs-5'>Facebook</a>
+//               </li>
+//               <li className='nav-item'>
+//                 <a href="https://twitter.com" target='_blanc' className='nav-link p-2 text-black fs-5'>Twitter</a>
+//               </li>
+//               <li className='nav-item'>
+//                 <a href="https://desktop.telegram.org" target='_blanc' className='nav-link p-2 text-black fs-5'>Telegram</a>
+//               </li>
+//             </ul>
+//           </div>
+//         </div>
+
+//       </div>
+//     </nav>
+//   );
+// };
+
+
+// export default Nav;
+
+
+// =============== WITHOUT DROPDOWN ===============
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import logo from '../../images/header-logo.png';
+import logo from '../../images/logo.png';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -151,8 +226,7 @@ const Nav: React.FC = () => {
       <div className="container">
 
         <NavLink to="/" className="navbar-brand d-flex justify-content-between align-items-center fs-2 border-0">
-          {/* <img src={logo} alt="Logo" width="40" height="40" className="d-inline-block align-text-top me-1" /> */}
-          LOGO
+          <img src={logo} alt="Logo" width="70" height="40" className="d-inline-block align-text-top" />
         </NavLink>
 
         <button className="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -165,13 +239,11 @@ const Nav: React.FC = () => {
               <li className="nav-item mx-2">
                 <NavLink to="/" className="nav-link text-black fs-5">Projects</NavLink>
               </li>
-              <li className="nav-item mx-2 dropdown">
-                <a className="nav-link dropdown-toggle text-black fs-5" role="button" data-bs-toggle="dropdown" aria-expanded="false">Info</a>
-                <ul className="dropdown-menu px-2 bg-black border-0">
-                  <li className='mb-2'><NavLink to="/about" className={setActiveSubLink}>About</NavLink></li>
-                  <li className='mb-2'><NavLink to="/awards" className={setActiveSubLink}>Awards</NavLink></li>
-                  <li className='mb-2'><NavLink to="/*" className={setActiveSubLink}>Something else</NavLink></li>
-                </ul>
+              <li className="nav-item mx-2">
+                <NavLink to="/services" className="nav-link text-black fs-5">Services</NavLink>
+              </li>
+              <li className="nav-item mx-2">
+                <NavLink to="/about" className="nav-link text-black fs-5">About us</NavLink>
               </li>
               <li className="nav-item mx-2">
                 <NavLink to="/contact" className="nav-link text-black fs-5">Contact</NavLink>
