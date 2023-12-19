@@ -2,7 +2,7 @@
 @import "../../scss/mixins.scss";
 @import "../../scss/hacks.scss";
 
-@mixin underline-from-left($color) {
+@mixin underline-from-left($color, $display) {
   $duration: $mediumDuration;
 
   @include hacks();
@@ -10,12 +10,13 @@
   // overflow: hidden;
 
   &:before {
+    display: $display;
     content: "";
     position: absolute;
     z-index: -1;
     left: 0;
     right: 100%;
-    bottom: -2px;
+    bottom: 0px;
     background: $color;
     height: 2px;
     @include prefixed(transition-property, "right");
@@ -40,12 +41,12 @@
   list-style-type: none;
 
   .filter__item {
-    @include underline-from-left(#000);
-    position: relative;
+    @include underline-from-left(#000, inline-block);
   }
 
-  .filter__item.active {
-    border-bottom: 2.3px solid #000;
+  .active-filter {
+    @include underline-from-left(#000, none);
+    border-bottom: 2px solid #000;
   }
 
 }

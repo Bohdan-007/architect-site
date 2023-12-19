@@ -13,7 +13,6 @@ import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 
 import './App.scss';
-import TestPage from './pages/testpage/TestPage';
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -23,8 +22,7 @@ const App: React.FC = () => {
     setIsShowFooter(location.pathname !== '/');
   }, [location]);
 
-  // console.log(isShowFooter);
-
+  
   return (
     <div className="app">
       {/* <Router> */}
@@ -35,7 +33,6 @@ const App: React.FC = () => {
         <ApiProvider api={projectsApi}>
           <Routes>
             <Route path='/' element={<ProjectsPage />} />
-            {/* <Route path='/' element={<TestPage />} /> */}
             <Route path='/project/:id' element={<OneProjectPage />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/contact' element={<ContactPage />} />

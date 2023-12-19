@@ -8,6 +8,6 @@ export class Project {
     public category: string,
     public photoUrl: string,
 
-    public filterTitle: any,
+    public filterTitle: string,
   ) { };
 };

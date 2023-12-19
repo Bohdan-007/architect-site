@@ -4,11 +4,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Carousel.scss';
 
-// const photos = [
-//   'https://live.staticflickr.com/65535/49389103952_ff4b2cf256.jpg',
-//   'https://farm6.staticflickr.com/5343/30212993894_85351f21ba.jpg',
-//   'https://farm1.staticflickr.com/836/39709319980_7b2159e8b5.jpg',
-// ]
 
 const photos = [
   { id: 1, title: "test flat", year: 2012, square: 85, category: "flat", photoUrl: "https://www.arch2o.com/wp-content/uploads/2022/10/Arch2O-10-of-the-most-eye-opening-iconic-buildings-of-modern-architecture.jpg" },
@@ -57,6 +52,7 @@ const PhotoSlider = () => {
       </Slider>
     </div>
   );
-}
+};
+
 
 export default PhotoSlider;

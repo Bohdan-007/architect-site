@@ -1,12 +1,35 @@
-.mobile-card-list {
-  width: 100px;
-  height: 100px;
-
-  // background-color: #7fffd4;
-
+.project {
+  width: 80px !important;
+  height: 50px !important;
   transform-style: preserve-3d;
-  // transform: rotateX(75deg);
-  transform: rotateX(60deg);
-  transition: .2s;
 
+  img {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 3px;
+  }
+
+  .project__filter-title {
+    position: absolute;
+    left: -110%;
+    transform-style: preserve-3d;
+    animation: cube 5s infinite linear;
+
+    .side {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: inherit;
+      height: inherit;
+      background-color: #fff;
+    }
+
+    .front {
+      transform: translateZ(0.1px);
+    }
+
+    .back {
+      transform: rotateY(180deg) translateZ(0.1px);
+    }
+  }
 }

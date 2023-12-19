@@ -1,10 +1,35 @@
-.card-list {
+.project-list {
+  margin: 0;
+  padding: 0;
   width: 100px;
   height: 100px;
 
-  // background-color: #7fffd4;
-
   transform-style: preserve-3d;
   transform: rotateX(60deg);
+
+  list-style-type: none;
   transition: .2s;
+  // background-color: #7fffd4;
+
+  & li {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    // background-color: #3498db;
+
+    border-radius: 3px;
+    transition: .05s;
+    transform-style: preserve-3d;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  
 }

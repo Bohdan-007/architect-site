@@ -141,9 +141,10 @@ import './Nav.scss';
 
 const Nav: React.FC = () => {
 
-  const setActiveSubLink = ({ isActive }: any) => (isActive
+  const setActiveSubLink = ({ isActive }: { isActive: boolean }): string => (isActive
     ? 'dropdown-item d-inline p-2 fs-5 text-white active-sub-link'
     : 'dropdown-item d-inline p-2 fs-5 text-white');
+
 
   return (
     <nav className="navbar navbar-expand-lg bg-white shadow-sm position-sticky top-0 z-3 h-100">

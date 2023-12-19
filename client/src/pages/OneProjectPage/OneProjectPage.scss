@@ -1,7 +1,7 @@
 .project-page {
 
   .project-page__info-list {
-    margin: 0;
+    margin-bottom: 20px;
     padding: 0;
     list-style-type: none;
 
@@ -31,6 +31,11 @@
       }
     }
   }
+
+  .project-page__goback-link {
+    text-decoration: underline;
+  }
+
 }
 
 @media (max-width: 992px) {

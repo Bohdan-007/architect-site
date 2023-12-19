@@ -1,17 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Project } from "../../models/project";
 import ProjectItem from "../ProjectItem/ProjectItem";
 
 import './MobileProjectList.scss';
 
 
-interface MobileProjectList {
-  projects: Project[];
-  info: any;
-  onHoverProject: (photoUrl: string) => void;
+interface MobileProjectListProps {
+  projects: Project[],
+  info: { rotateX: number, rotateY: number, rotateZ: number },
+  onHoverProject: (photoUrl: string) => void,
 };
 
-const MobileProjectList: React.FC<MobileProjectList> = ({ projects, info, onHoverProject }) => {
+interface MobileProjectItemStyle {
+  x: number,
+  y: number,
+  rotation: number,
+}
+
+const MobileProjectList: React.FC<MobileProjectListProps> = ({ projects, info: { rotateX, rotateY, rotateZ }, onHoverProject }) => {
+  const [radius, setRadius] = useState<number>(calculateRadius());
+
+  function calculateRadius(): number {
+    const factor: number = 0.55;
+    return Math.min(window.innerWidth, window.innerHeight) * factor;
+  };
 
   const handleHoverProject = (photoUrl: string): void => {
     onHoverProject(photoUrl);
@@ -23,24 +35,21 @@ const MobileProjectList: React.FC<MobileProjectList> = ({ projects, info, onHove
 
 
   return (
-    <div style={{ transform: `rotateX(${info.rotateX}deg) rotateY(${info.rotateY}deg) rotateZ(${info.rotateZ}deg)` }} className="mobile-card-list">
-      {
-        projects.map((project, idx: number) => {
+    <ul style={{ transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)` }} className="project-list">
+      {projects.map((project, idx: number) => {
+        const angle: number = (idx / numberOfCards) * 2 * Math.PI;
+        const x: number = 250 * Math.cos(angle) - cardWidth / 2;
+        const y: number = 250 * Math.sin(angle) - cardHeight / 2;
+        const rotation: number = angle * (180 / Math.PI);
+        const style: MobileProjectItemStyle = { x, y, rotation };
 
-          const angle = (idx / numberOfCards) * 2 * Math.PI;
-          const x = 250 * Math.cos(angle) - cardWidth / 2;
-          const y = 250 * Math.sin(angle) - cardHeight / 2;
-          const rotation = angle * (180 / Math.PI);
-          const style = { x, y, rotation };
-
-          return (
-            <>
-              {/* <ProjectItem key={project.id} project={project} style={style} onHoverProject={handleHoverProject} /> */}
-            </>
-          )
-        })
-      }
-    </div>
+        return (
+          <li key={idx}>
+            <ProjectItem project={project} style={style} onHoverProject={handleHoverProject} />
+          </li>
+        )
+      })}
+    </ul >
   );
 };
 
