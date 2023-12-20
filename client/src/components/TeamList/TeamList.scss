@@ -1,0 +1,29 @@
+.employee-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  &>li {
+    a {
+      color: #000;
+    }
+  }
+
+  .employee-list__img-wrapper {
+    width: 125px;
+    height: 125px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.employee-contact {
+  color: #000 !important;
+
+  a {
+    color: #000 !important;
+  }
+}
