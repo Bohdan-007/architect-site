@@ -1,0 +1,31 @@
+.react-3d-carousel {
+  height: 100px !important;
+
+  .slider-single {
+    border-bottom: none !important;
+
+    .slider-single-content {
+      box-shadow: none !important;
+
+      img {
+        margin-bottom: 10px !important;
+      }
+    }
+
+    .slider-left>div,
+    .slider-right>div {
+      border: none !important;
+      color: #000 !important;
+      position: absolute;
+      top: 60%;
+    }
+  }
+
+  .preactive {
+    color: transparent !important;
+  }
+
+  .proactive {
+    color: transparent !important;
+  }
+}

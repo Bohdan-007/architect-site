@@ -136,7 +136,7 @@ import logo from '../../images/logo.png';
 
 import ProjectList from "../../components/ProjectList/ProjectList";
 import ProjectFilter from "../../components/ProjectFilter/ProjectFilter";
-import MobileProjectList from "../../components/MobileProjectList/MobileProjectList";
+import MobileSlider from "../../components/MobileSlider/MobileSlider";
 
 import 'bootstrap/scss/bootstrap.scss';
 import 'animate.css';
@@ -147,10 +147,11 @@ interface Info {
   rotateY: number,
   rotateZ: number,
   photoUrl: string,
-}
+};
 
 const ProjectsPage: React.FC = () => {
   const { data: projects, error, isLoading, isSuccess } = useGetProjectsQuery('');
+  const [showLoader, setShowLoader] = useState(true);
   const [filteredProjects, setFilteredProjects] = useState<Project[] | undefined>(projects);
   const [hoveredProject, setHoveredProject] = useState<Project | null>();
   const [info, setInfo] = useState<Info>({
@@ -159,7 +160,9 @@ const ProjectsPage: React.FC = () => {
     rotateZ: 0,
     photoUrl: ''
   });
-  const [showLoader, setShowLoader] = useState(true);
+  // add animation for circle
+  const [animate, setAnimate] = useState('animate__zoomIn');
+
 
   useEffect(() => {
     isSuccess && setFilteredProjects(projects);
@@ -167,6 +170,7 @@ const ProjectsPage: React.FC = () => {
     // Show loader for 3 seconds
     const loaderTimeout = setTimeout(() => {
       setShowLoader(false);
+      setTimeout(() => setAnimate(''), 1100);
     }, 3000);
 
     return () => clearTimeout(loaderTimeout); // Clear timeout on component unmount
@@ -175,6 +179,8 @@ const ProjectsPage: React.FC = () => {
   const handleFilterProjects = (filterParam: string): void => {
     switch (filterParam) {
       case 'all':
+        setAnimate('animate__zoomIn');
+        setTimeout(() => setAnimate(''), 1000);
         setFilteredProjects(projects);
         break;
 
@@ -192,6 +198,8 @@ const ProjectsPage: React.FC = () => {
 
         }).sort((a, b) => b[filterParam] - a[filterParam]) : [];
 
+        setAnimate('animate__zoomIn');
+        setTimeout(() => setAnimate(''), 1000);
         setFilteredProjects(filteredArr);
         break;
 
@@ -220,6 +228,7 @@ const ProjectsPage: React.FC = () => {
     });
   };
 
+
   return (
     <>
       {error
@@ -230,13 +239,16 @@ const ProjectsPage: React.FC = () => {
           </div>)
           : isSuccess && filteredProjects
             ? (<div className="projects-page" onWheel={handleScroll} onMouseMove={handleMouseMove}>
-              <div className="projects-page__gallery">
+              <div className={`animate__animated projects-page__gallery ${animate}`}>
                 <ProjectList projects={filteredProjects} info={info} onHoverProject={setHoveredProject} />
               </div>
 
+              {/* <div className="projects-page__mobile-gallery"> */}
+              {/* <p>mobile gallery...</p> */}
+              {/* </div> */}
+              {/* <div className="projects-page__mobile-gallery"> */}
               <div className="projects-page__mobile-gallery">
-                {/* <p>mobile gallery...</p> */}
-                <MobileProjectList projects={filteredProjects} info={info} onHoverProject={setHoveredProject} />
+                <MobileSlider projects={filteredProjects} />
               </div>
 
               {hoveredProject ?

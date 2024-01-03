@@ -8,7 +8,6 @@
   justify-content: center;
   align-items: center;
 
-
   .loader {
     transform: scale(1);
     animation: pulse 1.5s infinite;
@@ -38,11 +37,6 @@
 
   .projects-page__mobile-gallery {
     display: none;
-    position: absolute;
-    top: 60%;
-    right: -25%;
-    perspective: 1800px !important;
-    z-index: 100;
   }
 
   .projects-page__project-photo {
@@ -52,7 +46,6 @@
     transform: translate(-50%, -30%);
     width: 400px;
     height: 250px;
-    // margin-bottom: 100px;
     z-index: 10;
 
     img {
@@ -100,7 +93,16 @@
     display: none !important;
   }
 
+  .projects-page__title {
+    display: none;
+  }
+
   .projects-page__mobile-gallery {
-    display: inline-block !important;
+    display: block !important;
+    width: 400px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
   }
 }

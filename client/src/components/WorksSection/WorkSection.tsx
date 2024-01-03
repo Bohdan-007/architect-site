@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
-import PhotoSlider from '../Carousel/Carousel';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './WorkSection.scss';
@@ -60,11 +59,7 @@ const WorkSection: React.FC = () => {
             </p>
           </div>
         </div>
-
       </div>
-
-      <PhotoSlider />
-
     </div>
   );
 };
