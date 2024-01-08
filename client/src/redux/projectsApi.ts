@@ -5,7 +5,8 @@ import { Project } from '../models/project';
 export const projectsApi = createApi({
   reducerPath: 'booksApi',
 
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/projects' }),
+  // baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/projects' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8700/api/projects' }),
 
   tagTypes: ['Projects'],
 

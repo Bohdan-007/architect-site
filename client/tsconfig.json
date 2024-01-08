@@ -24,4 +24,8 @@
   "include": [
     "src"
   ]
+//   "typeRoots": [ 
+//   "./typings", 
+//   "./node_modules/@types/" 
+// ]
 }

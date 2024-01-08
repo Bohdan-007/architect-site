@@ -9,6 +9,7 @@ import ServicesPage from './pages/ServicesPage/ServicesPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import ContactPage from './pages/ContactPage/ContactPage';
 import NotFoundPage from './pages/NotFountPage/NotFoundPage';
+import AddProjectPage from './pages/AddProjectPage/AddProjectPage';
 
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
@@ -26,8 +27,8 @@ const App: React.FC = () => {
 
   // to prohibit the actions of the right mouse button on the site.
   document.addEventListener('contextmenu', event => event.preventDefault());
-  
-  
+
+
   return (
     <div className="app">
       {/* <Router> */}
@@ -42,6 +43,7 @@ const App: React.FC = () => {
             <Route path='/services' element={<ServicesPage />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/contact' element={<ContactPage />} />
+            <Route path='/admin/create' element={<AddProjectPage />} />
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </ApiProvider>
